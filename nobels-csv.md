@@ -1,6 +1,6 @@
 Nobel winners
 ================
-Naomi Ekas
+Morgan Shumaker
 
 ``` r
 library(tidyverse)
@@ -9,23 +9,26 @@ library(tidyverse)
 Let’s first load the data:
 
 ``` r
-nobel <- ___(___)
+nobel <- read.csv("data-raw/nobel.csv")
 ```
 
 Then let’s split the data into two:
 
 ``` r
-# stem laureates
-___ <- nobel %>%
-  filter(___)
-
-# non-steam laureates
-___ <- nobel %>%
-  filter(___)
+#stem_laureates
+nobel_stem <- nobel %>%
+  filter(category %in% c("Physics", "Economics", "Chemistry", "Medicine"))
+#not_stem_laureate
+nobel_nonstem <- nobel %>%
+  filter(!category %in% c("Physics", "Economics", "Chemistry", "Medicine"))
 ```
 
 And finally write out the data:
 
 ``` r
-# add code for writing out the two data frames here
+#write.csv(nobel_stem, file = "data/nobel_stem.csv")
+```
+
+``` r
+#write.csv(nobel_nonstem, file = "data/nobel_nonstem.csv")
 ```
